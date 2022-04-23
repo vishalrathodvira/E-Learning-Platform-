@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- Coding With Nick -->
+    <title>Login Form</title>
+</head>
+
+<body>
+    {{ status }}
+    <div class="wrapper login">
+        <div class="container">
+            <div class="col-left">
+                <div class="login-text">
+                    
+                    <a href="ureg" class="btn">Sign Up</a><br>
+                    <h1><a href="/" class="btn">Home</a></h1>
+                </div>
+            </div>
+
+            <div class="col-right">
+                <div class="login-form">
+                    <h2>Login</h2>
+                    <form action="/changepass" method="post">
+                        {% csrf_token %}
+                       
+                        <p>
+                            <label> New Password<span>*</span></label>
+                            <input type="password" placeholder="Password" required name="password">
+                        </p>
+                        <p>
+                            <label>Conform Password<span>*</span></label>
+                            <input type="password" placeholder="Password" required name="password">
+                        </p>
+                        <p>
+                            <input type="submit" value="Sign In">
+                        </p>
+                        
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

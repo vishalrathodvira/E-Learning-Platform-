@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Coding With Nick -->
+    <title>Sign-Up</title>
+</head>
+
+<body>
+    <div class="wrapper login">
+        <div class="container">
+            <div class="col-left">
+                <div class="login-text">
+                    <h2>Welcome Back</h2>
+                    <p>Already Registed.<br>Pleause Login.</p>
+                    <a href="/signin" class="btn">logIn</a><br>
+
+                    <h1> <a href="/" class="btn">Home</a></h1>
+                </div>
+            </div>
+
+            <div class="col-right">
+                <div class="login-form">
+                    <h2>Signup</h2>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div>
+                            {% for message in messages %}
+                            <h2 style="color: red;"> {{ message }} </h2>
+                            {% endfor %}
+                        </div>
+                        <p>
+                            <label for="">username</label>
+                            <input type="text" id="username" name="username"
+                                placeholder="create a username (only letters and numbers)" required />
+                        </p>
+                        <p>
+                            <label for="">first name</label>
+                            <input type="text" id="fname" name="fname" placeholder="Enter your Frist Name"
+                                required />
+                        </p>
+                        <p>
+                            <label for="">last name</label>
+                            <input type="text" id="lname" name="lname" placeholder="Enter your Last Name"
+                                required />
+                        </p>
+                        <p>
+                            <label for="">emailid </label>
+                            <input type="text" id="email" name="email" placeholder="Enter your Frist Email Addresh"
+                                required />
+                        </p>
+                        <p>
+                            <label for="">password</label>
+                            <input type="password" id="password" name="password" placeholder="Create a Password "
+                                required />
+                        </p>
+                        <p>
+                            <label for="">conform password</label>
+                            <input type="password" id="cpassword" name="cpassword" placeholder="Confourm your password"
+                                required />
+                        </p>
+                        <p>
+                            <input type="submit" value="Sign Un">
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

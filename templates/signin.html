@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    {% if user.is_authenticated %}
+
+    {% endif %}
+
+    <div class="wrapper login">
+        <div class="container">
+            <div class="col-left">
+                <div class="login-text">
+                    <h2>Welcome Back</h2>
+                    <p>Create your account.<br>It's totally free.</p>
+                    <a href="signup" class="btn">Sign Up</a><br>
+                    <h1><a href="/" class="btn">Home</a></h1>
+                </div>
+            </div>
+
+            <div class="col-right">
+                <div class="login-form">
+                    <h2>Login</h2>
+                    <form action="/signin" method="post">
+                        {% csrf_token %}
+                        <div>
+                            {% for message in messages %}
+                            <h2 style="color: red;"> {{ message }} </h2>
+                            {% endfor %}
+                        </div>
+                        <p>
+                            <label for="">username</label>
+                            <input type="text" id="uname" name="uname" placeholder="Enter Your Username"
+                                required />
+
+                        </p>
+                        <p>
+                            <label for="">password</label>
+                            <input type="password" id="pass" name="pass" placeholder="Enter Your Password "
+                                required />
+
+                        </p>
+                        <p>
+                            <input type="submit" value="Sign In">
+                        </p>
+                        <p>
+                            <a href="forgetpassword">Forget password?</a>
+                        </p>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

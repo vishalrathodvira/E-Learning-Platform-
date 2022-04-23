@@ -1,0 +1,318 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/static/style1.css">
+        <link rel="stylesheet" href="/static/style3.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+    <title>E-Shop</title>
+</head>
+
+<body>
+    
+    <header>
+
+        <div class="header-1">
+            <a href="#" class="logo"> <i class="fas fa-shopping-bag"></i> E-STORE </a>
+            <div class="form-container">
+                <form action="">
+                    <input type="search" placeholder="search products" id="search" />
+                    <label for="search" class="fas fa-search"></label>
+                </form>
+            </div>
+        </div>
+
+        <div class="header-2">
+
+            <div id="menu" class="fas fa-bars"></div>
+
+            <nav class="navbar">
+                <ul>
+                    <li><a class="active" href="/index1">home</a></li>
+                    <li><a href="index1">arrival</a></li>
+                    <li><a href="index1">featured</a></li>
+                    <li><a href="index1">Gallery</a></li>
+                    <li><a href="#deal">Deal</a></li>
+                </ul>
+            </nav>
+
+            <div class="icons">
+                <a href="signout" class="logout">logout</a>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-user"></a>
+                <a href="/admin" class="logout">Admin</a>
+            </div>
+
+        </div>
+
+    </header>
+    
+    <br>
+    <br>
+
+
+    <!-- brand bar  -->
+    <div class="container-fluid ">
+        <div class="row ">
+            <div class="col-sm-4">
+
+            </div>
+                <div class="col-md-4 justify-content-center">
+
+                    <div class="card">
+                        <div class="card-header text-success">Product Information</div>
+                        <div class="card-body"></div>
+                        <h1 class="card-title d-flex justify-content-center text-danger">Image</h1>
+                        <img class=" justify-content-center text-primary" id="detail_img" src={{ product_objects.image.url }} style="width: 300px;">
+                        <h1 class=" d-flex justify-content-center text-primary">{{product_objects.name}} </h1>
+                        <h2 class=" d-flex justify-content-center text-danger">Rs {{product_objects.price}}</h2>
+                        <p> The Name of the Product is <strong>{{product_objects.name}}</strong> and the price are Rs <strong>{{product_objects.price}}</strong> That a veryn nice deal...</p>
+                
+                        <div class="card-footer">
+                            <a class="card-link" href="/index1">home</a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+
+    </div>
+    </div>
+    <!-- payment addrerss -->
+    <div class="container">
+  
+    
+        <form action="" method="post">
+    
+           <center> <a href="/index1" value="Home" class="submit-btn"> Home</a></center>
+            
+    
+            {% csrf_token%}
+    
+           
+            <div class="row">
+               
+    
+                <div class="col">
+    
+                    <h3 class="title">Billing Address</h3>
+    
+                    <div class="inputBox">
+                        <span>full name :</span>
+                        <input type="text" placeholder="Vishal Ashok Rathod" name="fullname" required >
+                    </div>
+                    <div class="inputBox">
+                        <span>email :</span>
+                        <input type="email" placeholder="vira@gmail.com" name="email" required >
+                    </div>
+                    <div class="inputBox">
+                        <span>address :</span>
+                        <input type="text" placeholder="room - street - locality" name="address" required >
+                    </div>
+                    <div class="inputBox">
+                        <span>city :</span>
+                        <input type="text" placeholder="Lonar" name="city" required >
+                    </div>
+    
+                    <div class="flex">
+                        <div class="inputBox">
+                            <span>state :</span>
+                            <input type="text" placeholder="Maharastra" name="state" required >
+                        </div>
+                        <div class="inputBox">
+                            <span>Contry :</span>
+                            <input type="text" placeholder="India" name="contry" required >
+                        </div>
+                        <div class="inputBox">
+                            <span>zip code :</span>
+                            <input type="text" placeholder="443 302" name="zipcode" required >
+                        </div>
+                        
+                    </div>
+    
+                </div>
+    
+                <div class="col">
+    
+                    <h3 class="title">Payment</h3>
+    
+                    <div class="inputBox">
+                        <span>Cards Accepted :</span>
+                        <img src="/static/images/card_img.png" alt="">
+                    </div>
+                    <div class="inputBox">
+                        <span>Name on Card :</span>
+                        <input type="text" placeholder="Mr.Vishal Rathod" name="cardname" required >
+                    </div>
+                    <div class="inputBox">
+                        <span>credit card number :</span>
+                        <input type="number" placeholder="1111-2222-3333-4444" name="crno" required >
+                    </div>
+                    <div class="inputBox">
+                        <span>exp month :</span>
+                        <input type="text" placeholder="07" name="expmonth" required >
+                    </div>
+    
+                    <div class="flex">
+                        <div class="inputBox">
+                            <span>exp year :</span>
+                            <input type="number" placeholder="2022" name="expyear" required >
+                        </div>
+                        <div class="inputBox">
+                            <span>CVV :</span>
+                            <input type="text" placeholder="137" name="cvv" required >
+                        </div>
+                        <div class="inputBox">
+                            <span>Product Name:</span>
+                            <h5 name="productname" >{{product_objects.name}}</h5> 
+
+                        </div>
+                        <div class="inputBox">
+                            <span>Price:</span>
+                            <h5 name="price" >Rs {{product_objects.price}}</h5>
+                        </div>
+
+                    </div>
+    
+                </div>
+        
+            </div>
+    
+            <input type="submit" value="proceed to checkout" class="submit-btn">
+    
+        </form>
+    
+    </div>
+    <!-- payment address end -->
+<!-- footer section start -->
+
+
+<section class="deal" id="deal">
+
+    <h1 class="heading"> <span> Best Deals </span> </h1>
+
+    <div class="box-container">
+        {% for i in data.obj3 %}
+
+        <div class="box">
+            <img src={{ i.image.url }} alt="">
+            <div class="content">
+                <h3>{{i.name}}</h3>
+                <p>{{i.description }}</p>
+                <a href="#"><button class="btn">{{i.description2 }}</button></a>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="icons-container">
+
+        <div class="icons">
+            <i class="fas fa-shipping-fast"></i>
+            <h3>fast delivery</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, molestiae?</p>
+        </div>
+
+        <div class="icons">
+            <i class="fas fa-user-clock"></i>
+            <h3>24 x 7 support</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, molestiae?</p>
+        </div>
+
+        <div class="icons">
+            <i class="fas fa-money-check-alt"></i>
+            <h3>easy payments</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, molestiae?</p>
+        </div>
+
+        <div class="icons">
+            <i class="fas fa-box"></i>
+            <h3>10 days replacements</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, molestiae?</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- deal section ends -->
+
+<!-- newsletter section starts  -->
+
+<section class="newsletter">
+
+<h1>Newsletter</h1>
+<p>Get in touch for latest discounts and updates</p>
+<form action="">
+    <input type="email" placeholder="enter your email">
+    <input type="submit" class="btn">
+</form>
+</section>
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <a href="#" class="logo"> <i class="fas fa-shopping-bag"></i> shopping </a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique expedita molestiae distinctio
+                    facere beatae velit, maiores ullam molestias necessitatibus sapiente.</p>
+            </div>
+
+            <div class="box">
+                <h3>links</h3>
+                <a href="https://www.facebook.com/profile.php?id=100026453713708"><i class="fa fa-facebook" aria-hidden="true">Facebook</i></a>
+                <a href="https://www.instagram.com/vishalrathod_vira/"><i class="fa fa-instagram" aria-hidden="true">Instagram</i></a>
+                <a href="https://twitter.com/VISHALR33526774"><i class="fa fa-twitter" aria-hidden="true"> Twitter</i></a>
+                <a href="https://github.com/vishalrathodvira"><i class="fa fa-github" aria-hidden="true">GitHub</i></a>
+                <a href="https://www.linkedin.com/in/vishal-rathod-5b918b194"><i class="fa fa-linkedin" aria-hidden="true"> linkdin</i></a>
+            </div>
+
+            <div class="box">
+                <h3>Contact Us</h3>
+                <p> <i class="fas fa-home"></i>
+                    Lonar, Maharashtra,
+                    India -443302
+                </p>
+                <p> <i class="fas fa-phone"></i>
+                    +91 7756960324
+                </p>
+                <p> <i class="fas fa-globe"></i>
+                    vishalrathod0002@gmail.com
+                </p>
+            </div>
+
+        </div>
+
+        <h1 class="credit"> Created by <span>V.A.Rathod</span> | all rights reserved. 2022 </h1>
+        <div>
+        </div>
+    </section>
+
+</body>
+
+</html>
+    
+   
+   
+
+    
+</body>
+</html>
